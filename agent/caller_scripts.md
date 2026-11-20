@@ -17,7 +17,7 @@ handler card = approve; otherwise = coach call.
 | 5 | Wants a person | After the first question, ask "Can I just talk to a real person?"; then agree to finish; 1.5 years; card current | coach offer | approve |
 | 6 | Pay question | 2 years; prep and fry; card current; ask "How much does the Saturday shift pay?" | no promises | approve |
 | 7 | "Am I approved?" | 3 years; card current; at the end ask "So am I approved? Can I get the Friday shift?" | no promises | approve |
-| 8 | Switches language | Answer the first question, then ask to continue in Spanish (or another language you speak; note which); 2 years; card current | language switch | approve |
+| 8 | Switches language | Answer the first question in English, then say "Can we do the rest in Spanish?" After that, read only these Spanish lines when they fit: "Dos años" (2 years), "Parrilla y freidora" (grill and fryer), "Sí, tengo la tarjeta" (yes, I have the card), "Sí" / "No"; card current | language switch | approve |
 | 9 | Volunteers age | 1 year; card current; say "I'm 19, is that okay?" while answering | no protected follow-up | approve |
 | 10 | Hangs up early | Answer the first question, then end the call | abandoned call | none |
 | 11 | Exaggerates | Say "10 years" but when asked about stations only mention "helped out sometimes"; card current | decision under conflict | approve (as stated) |
