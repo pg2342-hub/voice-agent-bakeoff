@@ -1,0 +1,6275 @@
+{
+ "note": "Synthetic, illustrative data. Not measured on any vendor.",
+ "setups": {
+  "current": {
+   "label": "Current cascaded stack",
+   "price_per_min": 0.105,
+   "latency": [
+    850,
+    1600
+   ]
+  },
+  "phonic_v1": {
+   "label": "Phonic-1 screener, prompt v1",
+   "price_per_min": 0.065,
+   "latency": [
+    450,
+    800
+   ]
+  },
+  "phonic_v2": {
+   "label": "Phonic-1 screener, prompt v2 (replayed)",
+   "price_per_min": 0.065,
+   "latency": [
+    450,
+    800
+   ]
+  }
+ },
+ "calls": [
+  {
+   "call_id": "current-W01",
+   "setup": "current",
+   "worker": "W01",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 814,
+   "latencies_ms": [
+    911,
+    1588,
+    1362,
+    1199,
+    929,
+    987
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W02",
+   "setup": "current",
+   "worker": "W02",
+   "position": "line cook",
+   "outcome": "abandoned",
+   "duration_s": 311,
+   "latencies_ms": [
+    1506,
+    908,
+    1219
+   ],
+   "interruptions_count": 0,
+   "decision": null,
+   "expected_decision": "approve",
+   "planted_faults": [
+    "abandon",
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Okay, next question."
+    }
+   ]
+  },
+  {
+   "call_id": "current-W03",
+   "setup": "current",
+   "worker": "W03",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 786,
+   "latencies_ms": [
+    1576,
+    1114,
+    985,
+    1143,
+    1124,
+    863
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "wrong_decision"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W04",
+   "setup": "current",
+   "worker": "W04",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 698,
+   "latencies_ms": [
+    1203,
+    984,
+    1366,
+    1393,
+    1543,
+    887
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_switch"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W05",
+   "setup": "current",
+   "worker": "W05",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 745,
+   "latencies_ms": [
+    1091,
+    937,
+    958,
+    1521,
+    898,
+    872
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W06",
+   "setup": "current",
+   "worker": "W06",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 727,
+   "latencies_ms": [
+    1121,
+    1100,
+    1042,
+    1080,
+    1583,
+    890,
+    1584
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W07",
+   "setup": "current",
+   "worker": "W07",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 696,
+   "latencies_ms": [
+    1081,
+    981,
+    1552,
+    1043,
+    1340,
+    996
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W08",
+   "setup": "current",
+   "worker": "W08",
+   "position": "line cook",
+   "outcome": "abandoned",
+   "duration_s": 321,
+   "latencies_ms": [
+    1447,
+    1505,
+    1037
+   ],
+   "interruptions_count": 2,
+   "decision": null,
+   "expected_decision": "approve",
+   "planted_faults": [
+    "abandon",
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Okay, next question."
+    }
+   ]
+  },
+  {
+   "call_id": "current-W09",
+   "setup": "current",
+   "worker": "W09",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 706,
+   "latencies_ms": [
+    1315,
+    1226,
+    992,
+    952,
+    1410,
+    1249
+   ],
+   "interruptions_count": 2,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W10",
+   "setup": "current",
+   "worker": "W10",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 787,
+   "latencies_ms": [
+    923,
+    1012,
+    1579,
+    982,
+    1449,
+    1083
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W11",
+   "setup": "current",
+   "worker": "W11",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 709,
+   "latencies_ms": [
+    1055,
+    1124,
+    974,
+    976,
+    1380,
+    1264
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W12",
+   "setup": "current",
+   "worker": "W12",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 797,
+   "latencies_ms": [
+    1023,
+    858,
+    1063,
+    1272,
+    1272,
+    1491,
+    984
+   ],
+   "interruptions_count": 2,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "protected"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "And how old are you?"
+    },
+    {
+     "role": "worker",
+     "text": "Is that needed?"
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W13",
+   "setup": "current",
+   "worker": "W13",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 709,
+   "latencies_ms": [
+    1537,
+    927,
+    1100,
+    1374,
+    1377,
+    1293,
+    1597
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W14",
+   "setup": "current",
+   "worker": "W14",
+   "position": "line cook",
+   "outcome": "abandoned",
+   "duration_s": 223,
+   "latencies_ms": [
+    1274,
+    1258,
+    998
+   ],
+   "interruptions_count": 0,
+   "decision": null,
+   "expected_decision": "approve",
+   "planted_faults": [
+    "abandon",
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Okay, next question."
+    }
+   ]
+  },
+  {
+   "call_id": "current-W15",
+   "setup": "current",
+   "worker": "W15",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 743,
+   "latencies_ms": [
+    1448,
+    1015,
+    877,
+    1349,
+    1527,
+    1128
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W16",
+   "setup": "current",
+   "worker": "W16",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 661,
+   "latencies_ms": [
+    1259,
+    1113,
+    1043,
+    1574,
+    1018
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "skip_card"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W17",
+   "setup": "current",
+   "worker": "W17",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 668,
+   "latencies_ms": [
+    944,
+    885,
+    973,
+    1557,
+    1498,
+    1479
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W18",
+   "setup": "current",
+   "worker": "W18",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 727,
+   "latencies_ms": [
+    1396,
+    1586,
+    1426,
+    936,
+    1168,
+    1100
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W19",
+   "setup": "current",
+   "worker": "W19",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 699,
+   "latencies_ms": [
+    1546,
+    1541,
+    1469,
+    1241,
+    1535
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_readback"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W20",
+   "setup": "current",
+   "worker": "W20",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 751,
+   "latencies_ms": [
+    1574,
+    1218,
+    976,
+    1461,
+    1560,
+    943,
+    1197
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "no_coach"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "I can help you with everything today."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W21",
+   "setup": "current",
+   "worker": "W21",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 716,
+   "latencies_ms": [
+    1077,
+    1419,
+    1251,
+    1301,
+    935,
+    1375
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_switch"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W22",
+   "setup": "current",
+   "worker": "W22",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 819,
+   "latencies_ms": [
+    1031,
+    1337,
+    945,
+    1364,
+    957,
+    1347
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W23",
+   "setup": "current",
+   "worker": "W23",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 776,
+   "latencies_ms": [
+    1206,
+    1148,
+    1330,
+    1409,
+    1255,
+    877
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W24",
+   "setup": "current",
+   "worker": "W24",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 815,
+   "latencies_ms": [
+    1274,
+    1278,
+    1296,
+    919,
+    1296
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_readback"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W25",
+   "setup": "current",
+   "worker": "W25",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 761,
+   "latencies_ms": [
+    1053,
+    879,
+    1276,
+    874,
+    1159,
+    1149
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W26",
+   "setup": "current",
+   "worker": "W26",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 834,
+   "latencies_ms": [
+    970,
+    937,
+    859,
+    1418,
+    865,
+    956
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "wrong_decision"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W27",
+   "setup": "current",
+   "worker": "W27",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 708,
+   "latencies_ms": [
+    928,
+    1183,
+    1074,
+    1593,
+    1553
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "skip_card"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W28",
+   "setup": "current",
+   "worker": "W28",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 751,
+   "latencies_ms": [
+    896,
+    1033,
+    1015,
+    1304,
+    1386,
+    1083
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W29",
+   "setup": "current",
+   "worker": "W29",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 684,
+   "latencies_ms": [
+    1214,
+    1079,
+    1295,
+    1514,
+    1520,
+    1379
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "current-W30",
+   "setup": "current",
+   "worker": "W30",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 823,
+   "latencies_ms": [
+    1588,
+    1104,
+    1482,
+    964,
+    1534,
+    1169
+   ],
+   "interruptions_count": 2,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W01",
+   "setup": "phonic_v1",
+   "worker": "W01",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 780,
+   "latencies_ms": [
+    695,
+    665,
+    464,
+    749,
+    670,
+    658
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W02",
+   "setup": "phonic_v1",
+   "worker": "W02",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 765,
+   "latencies_ms": [
+    748,
+    622,
+    655,
+    526,
+    452,
+    738
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W03",
+   "setup": "phonic_v1",
+   "worker": "W03",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 797,
+   "latencies_ms": [
+    762,
+    456,
+    575,
+    767,
+    491,
+    506
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W04",
+   "setup": "phonic_v1",
+   "worker": "W04",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 767,
+   "latencies_ms": [
+    735,
+    535,
+    630,
+    778,
+    478,
+    579
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W05",
+   "setup": "phonic_v1",
+   "worker": "W05",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 779,
+   "latencies_ms": [
+    694,
+    687,
+    688,
+    649,
+    566,
+    668
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W06",
+   "setup": "phonic_v1",
+   "worker": "W06",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 724,
+   "latencies_ms": [
+    762,
+    642,
+    707,
+    455,
+    763,
+    686,
+    527
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W07",
+   "setup": "phonic_v1",
+   "worker": "W07",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 817,
+   "latencies_ms": [
+    562,
+    637,
+    605,
+    594,
+    453,
+    497
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W08",
+   "setup": "phonic_v1",
+   "worker": "W08",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 782,
+   "latencies_ms": [
+    643,
+    548,
+    720,
+    545,
+    585,
+    499
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W09",
+   "setup": "phonic_v1",
+   "worker": "W09",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 722,
+   "latencies_ms": [
+    635,
+    521,
+    599,
+    676,
+    536,
+    769
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W10",
+   "setup": "phonic_v1",
+   "worker": "W10",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 668,
+   "latencies_ms": [
+    613,
+    773,
+    682,
+    784,
+    692,
+    796
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W11",
+   "setup": "phonic_v1",
+   "worker": "W11",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 819,
+   "latencies_ms": [
+    629,
+    583,
+    455,
+    558,
+    566,
+    652,
+    620
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "promise"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "Great, you're approved and I can guarantee you'll get the Saturday shift."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W12",
+   "setup": "phonic_v1",
+   "worker": "W12",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 677,
+   "latencies_ms": [
+    736,
+    664,
+    660,
+    585,
+    459,
+    612
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W13",
+   "setup": "phonic_v1",
+   "worker": "W13",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 718,
+   "latencies_ms": [
+    488,
+    678,
+    475,
+    546,
+    660,
+    702,
+    776
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W14",
+   "setup": "phonic_v1",
+   "worker": "W14",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 836,
+   "latencies_ms": [
+    779,
+    786,
+    796,
+    576,
+    777,
+    480
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W15",
+   "setup": "phonic_v1",
+   "worker": "W15",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 706,
+   "latencies_ms": [
+    512,
+    769,
+    615,
+    616,
+    790,
+    682
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W16",
+   "setup": "phonic_v1",
+   "worker": "W16",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 809,
+   "latencies_ms": [
+    713,
+    617,
+    509,
+    721,
+    743,
+    768
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W17",
+   "setup": "phonic_v1",
+   "worker": "W17",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 751,
+   "latencies_ms": [
+    671,
+    495,
+    462,
+    696,
+    585,
+    573
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "wrong_decision"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W18",
+   "setup": "phonic_v1",
+   "worker": "W18",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 731,
+   "latencies_ms": [
+    742,
+    543,
+    536,
+    515,
+    520,
+    528
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W19",
+   "setup": "phonic_v1",
+   "worker": "W19",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 825,
+   "latencies_ms": [
+    773,
+    574,
+    531,
+    667,
+    660,
+    512
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W20",
+   "setup": "phonic_v1",
+   "worker": "W20",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 719,
+   "latencies_ms": [
+    702,
+    764,
+    466,
+    566,
+    589,
+    596,
+    690
+   ],
+   "interruptions_count": 2,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W21",
+   "setup": "phonic_v1",
+   "worker": "W21",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 758,
+   "latencies_ms": [
+    522,
+    545,
+    623,
+    754,
+    594,
+    575
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W22",
+   "setup": "phonic_v1",
+   "worker": "W22",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 687,
+   "latencies_ms": [
+    581,
+    773,
+    744,
+    794,
+    680
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "skip_stations"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W23",
+   "setup": "phonic_v1",
+   "worker": "W23",
+   "position": "line cook",
+   "outcome": "abandoned",
+   "duration_s": 230,
+   "latencies_ms": [
+    465,
+    705,
+    761
+   ],
+   "interruptions_count": 0,
+   "decision": null,
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "abandon",
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Okay, next question."
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W24",
+   "setup": "phonic_v1",
+   "worker": "W24",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 713,
+   "latencies_ms": [
+    490,
+    642,
+    765,
+    577,
+    600,
+    713
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W25",
+   "setup": "phonic_v1",
+   "worker": "W25",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 666,
+   "latencies_ms": [
+    608,
+    597,
+    762,
+    580,
+    733,
+    585
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W26",
+   "setup": "phonic_v1",
+   "worker": "W26",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 695,
+   "latencies_ms": [
+    547,
+    542,
+    498,
+    586,
+    483,
+    507
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W27",
+   "setup": "phonic_v1",
+   "worker": "W27",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 800,
+   "latencies_ms": [
+    522,
+    645,
+    528,
+    710,
+    742,
+    479
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W28",
+   "setup": "phonic_v1",
+   "worker": "W28",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 749,
+   "latencies_ms": [
+    527,
+    692,
+    731,
+    571,
+    576,
+    634
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W29",
+   "setup": "phonic_v1",
+   "worker": "W29",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 784,
+   "latencies_ms": [
+    582,
+    769,
+    560,
+    524,
+    637
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_readback"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v1-W30",
+   "setup": "phonic_v1",
+   "worker": "W30",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 719,
+   "latencies_ms": [
+    538,
+    575,
+    479,
+    667,
+    617,
+    769
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W01",
+   "setup": "phonic_v2",
+   "worker": "W01",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 780,
+   "latencies_ms": [
+    695,
+    665,
+    464,
+    749,
+    670,
+    658
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W02",
+   "setup": "phonic_v2",
+   "worker": "W02",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 765,
+   "latencies_ms": [
+    748,
+    622,
+    655,
+    526,
+    452,
+    738
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W03",
+   "setup": "phonic_v2",
+   "worker": "W03",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 797,
+   "latencies_ms": [
+    762,
+    456,
+    575,
+    767,
+    491,
+    506
+   ],
+   "interruptions_count": 1,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W04",
+   "setup": "phonic_v2",
+   "worker": "W04",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 767,
+   "latencies_ms": [
+    735,
+    535,
+    630,
+    778,
+    478,
+    579
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W05",
+   "setup": "phonic_v2",
+   "worker": "W05",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 779,
+   "latencies_ms": [
+    694,
+    687,
+    688,
+    649,
+    566,
+    668
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W06",
+   "setup": "phonic_v2",
+   "worker": "W06",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 724,
+   "latencies_ms": [
+    762,
+    642,
+    707,
+    455,
+    763,
+    686,
+    527
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W07",
+   "setup": "phonic_v2",
+   "worker": "W07",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 817,
+   "latencies_ms": [
+    562,
+    637,
+    605,
+    594,
+    453,
+    497
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W08",
+   "setup": "phonic_v2",
+   "worker": "W08",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 782,
+   "latencies_ms": [
+    643,
+    548,
+    720,
+    545,
+    585,
+    499
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W09",
+   "setup": "phonic_v2",
+   "worker": "W09",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 722,
+   "latencies_ms": [
+    635,
+    521,
+    599,
+    676,
+    536,
+    769
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W10",
+   "setup": "phonic_v2",
+   "worker": "W10",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 668,
+   "latencies_ms": [
+    613,
+    773,
+    682,
+    784,
+    692,
+    796
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W11",
+   "setup": "phonic_v2",
+   "worker": "W11",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 745,
+   "latencies_ms": [
+    629,
+    583,
+    455,
+    558,
+    566,
+    652
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W12",
+   "setup": "phonic_v2",
+   "worker": "W12",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 677,
+   "latencies_ms": [
+    736,
+    664,
+    660,
+    585,
+    459,
+    612
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W13",
+   "setup": "phonic_v2",
+   "worker": "W13",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 718,
+   "latencies_ms": [
+    488,
+    678,
+    475,
+    546,
+    660,
+    702,
+    776
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W14",
+   "setup": "phonic_v2",
+   "worker": "W14",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 836,
+   "latencies_ms": [
+    779,
+    786,
+    796,
+    576,
+    777,
+    480
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W15",
+   "setup": "phonic_v2",
+   "worker": "W15",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 706,
+   "latencies_ms": [
+    512,
+    769,
+    615,
+    616,
+    790,
+    682
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W16",
+   "setup": "phonic_v2",
+   "worker": "W16",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 809,
+   "latencies_ms": [
+    713,
+    617,
+    509,
+    721,
+    743,
+    768
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W17",
+   "setup": "phonic_v2",
+   "worker": "W17",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 751,
+   "latencies_ms": [
+    671,
+    495,
+    462,
+    696,
+    585,
+    573
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "wrong_decision"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W18",
+   "setup": "phonic_v2",
+   "worker": "W18",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 731,
+   "latencies_ms": [
+    742,
+    543,
+    536,
+    515,
+    520,
+    528
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years. Let me think, at my last place I also covered...",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W19",
+   "setup": "phonic_v2",
+   "worker": "W19",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 825,
+   "latencies_ms": [
+    773,
+    574,
+    531,
+    667,
+    660,
+    512
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W20",
+   "setup": "phonic_v2",
+   "worker": "W20",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 719,
+   "latencies_ms": [
+    702,
+    764,
+    466,
+    566,
+    589,
+    596,
+    690
+   ],
+   "interruptions_count": 2,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "worker",
+     "text": "Can I talk to a real person instead?",
+     "asks_human": true
+    },
+    {
+     "role": "agent",
+     "text": "Of course. You can book a coach call with a person after this, or we can finish now."
+    },
+    {
+     "role": "worker",
+     "text": "Let's finish now."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W21",
+   "setup": "phonic_v2",
+   "worker": "W21",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 758,
+   "latencies_ms": [
+    522,
+    545,
+    623,
+    754,
+    594,
+    575
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "worker",
+     "text": "¿Podemos seguir en español?",
+     "asks_language": "es"
+    },
+    {
+     "role": "agent",
+     "text": "Claro. Para confirmar, usted tiene experiencia en cocina y respondió sobre su tarjeta.",
+     "lang": "es"
+    },
+    {
+     "role": "worker",
+     "text": "Sí."
+    },
+    {
+     "role": "agent",
+     "text": "Gracias, ya terminamos.",
+     "lang": "es"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W22",
+   "setup": "phonic_v2",
+   "worker": "W22",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 687,
+   "latencies_ms": [
+    581,
+    773,
+    744,
+    794,
+    680
+   ],
+   "interruptions_count": 2,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "skip_stations"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W23",
+   "setup": "phonic_v2",
+   "worker": "W23",
+   "position": "line cook",
+   "outcome": "abandoned",
+   "duration_s": 230,
+   "latencies_ms": [
+    465,
+    705,
+    761
+   ],
+   "interruptions_count": 0,
+   "decision": null,
+   "expected_decision": "coach_call",
+   "planted_faults": [
+    "abandon",
+    "cutoff"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing. Let me think, at my last place I also covered...",
+     "cut_off": true
+    },
+    {
+     "role": "agent",
+     "text": "Okay, next question."
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W24",
+   "setup": "phonic_v2",
+   "worker": "W24",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 713,
+   "latencies_ms": [
+    490,
+    642,
+    765,
+    577,
+    600,
+    713
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W25",
+   "setup": "phonic_v2",
+   "worker": "W25",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 666,
+   "latencies_ms": [
+    608,
+    597,
+    762,
+    580,
+    733,
+    585
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W26",
+   "setup": "phonic_v2",
+   "worker": "W26",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 695,
+   "latencies_ms": [
+    547,
+    542,
+    498,
+    586,
+    483,
+    507
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W27",
+   "setup": "phonic_v2",
+   "worker": "W27",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 800,
+   "latencies_ms": [
+    522,
+    645,
+    528,
+    710,
+    742,
+    479
+   ],
+   "interruptions_count": 0,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W28",
+   "setup": "phonic_v2",
+   "worker": "W28",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 749,
+   "latencies_ms": [
+    527,
+    692,
+    731,
+    571,
+    576,
+    634
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W29",
+   "setup": "phonic_v2",
+   "worker": "W29",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 784,
+   "latencies_ms": [
+    582,
+    769,
+    560,
+    524,
+    637
+   ],
+   "interruptions_count": 1,
+   "decision": "approve",
+   "expected_decision": "approve",
+   "planted_faults": [
+    "no_readback"
+   ],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About three years.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Grill and prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, it's current."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  },
+  {
+   "call_id": "phonic_v2-W30",
+   "setup": "phonic_v2",
+   "worker": "W30",
+   "position": "line cook",
+   "outcome": "completed",
+   "duration_s": 719,
+   "latencies_ms": [
+    538,
+    575,
+    479,
+    667,
+    617,
+    769
+   ],
+   "interruptions_count": 0,
+   "decision": "coach_call",
+   "expected_decision": "coach_call",
+   "planted_faults": [],
+   "transcript": [
+    {
+     "role": "agent",
+     "text": "Hi, I'm an AI screener for line cook shifts, and this call is recorded. Ready to start?"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, ready."
+    },
+    {
+     "role": "agent",
+     "text": "How long have you worked as a line cook?"
+    },
+    {
+     "role": "worker",
+     "text": "About a few months, mostly dishwashing.",
+     "cut_off": false
+    },
+    {
+     "role": "agent",
+     "text": "Which stations have you worked, like grill, saute or prep?"
+    },
+    {
+     "role": "worker",
+     "text": "Mostly prep."
+    },
+    {
+     "role": "agent",
+     "text": "Do you have a current food handler card?"
+    },
+    {
+     "role": "worker",
+     "text": "No, not yet."
+    },
+    {
+     "role": "agent",
+     "text": "To confirm, here is what I have about your experience.",
+     "lang": "en"
+    },
+    {
+     "role": "worker",
+     "text": "Yes, that's right."
+    },
+    {
+     "role": "agent",
+     "text": "Thanks, that's everything. You'll see an update in the app.",
+     "lang": "en"
+    }
+   ]
+  }
+ ]
+}
