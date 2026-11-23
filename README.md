@@ -1,5 +1,7 @@
 # Voice agent bake-off
 
+[![CI](https://github.com/pg2342-hub/voice-agent-bakeoff/actions/workflows/ci.yml/badge.svg)](https://github.com/pg2342-hub/voice-agent-bakeoff/actions/workflows/ci.yml)
+
 Demo page: https://pg2342-hub.github.io/voice-agent-bakeoff/
 
 A scorecard for switching a voice screening agent to a new model. The same calls go through the current stack and the new one; every call is graded on yes/no criteria, and a rollout gate decides whether the new setup may take the next step of traffic: replay recorded calls, then 10% of live screens, then 50% after a full week that meets the gate.

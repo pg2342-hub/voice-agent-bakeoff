@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-and-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -m unittest -v
+      - name: Eval on the synthetic call set
+        run: python -m bakeoff.report
+      - name: Check the grader and the gate
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("docs/data.json"))
+          agree, total = d["grader_check"]
+          assert agree == total, f"grader disagrees with the answer key on {total - agree} verdicts"
+          assert not d["gates"]["phonic_v1"]["go"], "prompt v1 should be held"
+          assert d["gates"]["phonic_v2"]["go"], "prompt v2 should pass the gate"
+          print(f"Grader {agree}/{total}; v1 HOLD, v2 GO")
+          PY
+      - name: Demo data is up to date
+        run: git diff --exit-code docs/data.json
