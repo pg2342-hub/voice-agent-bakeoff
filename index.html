@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice Agent Bake-off</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#000; --mute:#555; --line:#ddd; --soft:#f4f4f4; --bubble:#e9e9eb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:var(--ink); font:15px/1.5 Inter, system-ui, sans-serif; }
+  main { max-width:900px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:26px; margin:0 0 6px; letter-spacing:-0.01em; }
+  h2 { font-size:17px; margin:34px 0 10px; }
+  p { margin:8px 0; }
+  .sub { color:var(--mute); }
+  a { color:#000; }
+  .banner { border:2px solid #000; padding:14px 16px; margin:20px 0; }
+  .banner .big { font-size:24px; font-weight:700; display:block; }
+  .banner.hold { background:#000; color:#fff; }
+  .wrap { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:14px; }
+  td, th { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { border-bottom:2px solid #000; font-weight:600; }
+  td.num, th.num { text-align:right; white-space:nowrap; }
+  .tag { font-weight:700; font-size:12px; border:1px solid #000; padding:1px 6px; white-space:nowrap; }
+  .tag.fail { background:#000; color:#fff; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+  button { font:inherit; border:1px solid #000; background:#fff; padding:5px 12px; cursor:pointer; }
+  button.on, button:hover { background:#000; color:#fff; }
+  details { border-bottom:1px solid var(--line); }
+  summary { cursor:pointer; padding:9px 0; list-style:none; display:flex; gap:12px; flex-wrap:wrap; align-items:baseline; }
+  summary::-webkit-details-marker { display:none; }
+  .why { color:var(--mute); font-size:13px; }
+  .chat { background:var(--soft); padding:14px; margin:4px 0 14px; display:flex; flex-direction:column; gap:6px; }
+  .b { max-width:80%; padding:7px 12px; border-radius:16px; white-space:pre-wrap; word-wrap:break-word; }
+  .b.worker { align-self:flex-end; background:#000; color:#fff; }
+  .b.agent { align-self:flex-start; background:var(--bubble); }
+  .b .note { display:block; font-size:11px; opacity:.75; }
+  ol { padding-left:20px; }
+  code { background:var(--soft); padding:1px 4px; }
+  footer { margin-top:40px; color:var(--mute); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Voice agent bake-off: line cook screening calls</h1>
+  <p class="sub">The same 30 workers are screened by the current cascaded voice stack and by a Phonic-1 speech-to-speech screener. Every call is graded on 10 yes/no criteria, and a rollout gate decides whether the new screener may take the next step of traffic (replay, then 10% of live screens, then 50%).</p>
+  <p class="sub"><strong>The 90 calls on this page are synthetic.</strong> Faults were planted by hand so the scorecard has known answers to find. None of these numbers were measured on Vapi, Phonic, or any staffing marketplace. Prices are public list prices.</p>
+
+  <div id="banner" class="banner"></div>
+
+  <h2>How to read this page</h2>
+  <ol>
+    <li>The table compares the three setups on what a screening team pays for: screens that finish, rules the screener follows, the approve or coach-call call it makes, how fast it answers, and cost per finished screen.</li>
+    <li>The gate shows why prompt v1 was held back (one call promised a worker a shift) and why prompt v2, replayed on the same calls, may move to 10% of live screens.</li>
+    <li>Pick a setup under "Calls that failed a criterion" to read every failing call.</li>
+  </ol>
+
+  <h2>Scorecard</h2>
+  <div class="wrap"><table id="score"></table></div>
+  <p class="why">Cost per finished screen = all minutes, including calls the worker abandoned, times the list price per minute, divided by finished screens. Current stack: $0.105/min, the middle of the Deepgram, OpenAI and ElevenLabs stack in Vapi's own pricing calculator, including its hosting fee ($0.082 to $0.129/min). Phonic-1: $0.065/min, Phonic's Pro list price. Latencies are illustrative.</p>
+
+  <h2>Rollout gate</h2>
+  <div class="tabs" id="gateTabs"></div>
+  <div class="wrap"><table id="gate"></table></div>
+  <p id="rec"></p>
+
+  <h2>The 10 criteria</h2>
+  <p class="sub">Written the way Phonic's Evals Guide asks: binary, observable, one behavior each. The same text is loaded into Phonic as eval prompts for the live run. "Not triggered" means the behavior never had a chance to occur (for example, nobody asked for another language).</p>
+  <div class="wrap"><table id="crit"></table></div>
+
+  <h2>Calls that failed a criterion</h2>
+  <div class="tabs" id="callTabs"></div>
+  <div id="calls"></div>
+
+  <h2>Live run on Phonic-1</h2>
+  <div id="live"><p class="sub">Pending: 20 scripted calls to a real Phonic-1 screener (agent/caller_scripts.md), graded by Phonic's own eval prompts.</p></div>
+
+  <h2>Run it</h2>
+  <p><code>python3 -m unittest</code> then <code>python3 -m bakeoff.report</code>. No dependencies. The live scripts in <code>live/</code> need a Phonic API key.</p>
+
+  <footer>Built by Pranav Gudise. Code: <a href="https://github.com/pg2342-hub/voice-agent-bakeoff">github.com/pg2342-hub/voice-agent-bakeoff</a></footer>
+</main>
+<script>
+const pct = x => Math.round(100 * x) + "%";
+const money = x => x == null ? "-" : "$" + Number(x).toFixed(2);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function scoreTable(el, setups, keys) {
+  const rows = [
+    ["Finished screens", s => `${s.completed} of ${s.calls} (${pct(s.completion_rate)})`],
+    ["Criteria passed", s => `${s.criteria_pass} of ${s.criteria_judged} (${pct(s.criteria_pass_rate)})`],
+    ["Critical failures", s => s.critical_failures.length ? s.critical_failures.length + " (" + s.critical_failures.map(x => x[1]).join(", ") + ")" : "0"],
+    ["Approve / coach-call matches the reviewer", s => `${s.decision_agree} of ${s.decision_total}`],
+    ["Response latency, p50 / p90", s => `${s.latency_p50_ms} / ${s.latency_p90_ms} ms`],
+    ["Minutes used", s => s.minutes],
+    ["Cost per finished screen", s => money(s.cost_per_completed_screen)],
+  ];
+  let h = "<tr><th></th>" + keys.map(k => `<th class="num">${esc(setups[k].label)}</th>`).join("") + "</tr>";
+  for (const [name, f] of rows) h += `<tr><td>${name}</td>` + keys.map(k => `<td class="num">${esc(f(setups[k]))}</td>`).join("") + "</tr>";
+  el.innerHTML = h;
+}
+
+function gateTable(g) {
+  document.getElementById("gate").innerHTML = "<tr><th>Gate line</th><th>Result</th><th class='num'>Detail</th></tr>" +
+    g.checks.map(c => `<tr><td>${esc(c.rule)}</td><td><span class="tag ${c.pass ? "" : "fail"}">${c.pass ? "PASS" : "FAIL"}</span></td><td class="num">${esc(c.detail)}</td></tr>`).join("");
+  document.getElementById("rec").innerHTML = "<strong>" + esc(g.recommendation) + "</strong>";
+}
+
+function tabs(el, items, onPick) {
+  el.innerHTML = "";
+  items.forEach(([key, label], i) => {
+    const b = document.createElement("button"); b.textContent = label;
+    b.onclick = () => { [...el.children].forEach(x => x.classList.remove("on")); b.classList.add("on"); onPick(key); };
+    el.appendChild(b); if (i === 0) { b.classList.add("on"); onPick(key); }
+  });
+}
+
+function callsFor(d, setup) {
+  const list = d.calls.filter(c => c.setup === setup && (c.fails.length || c.outcome !== "completed" || (c.decision && c.decision !== c.expected_decision)));
+  document.getElementById("calls").innerHTML = list.length ? list.map(c => {
+    const notes = c.fails.map(f => "Failed: " + f.toLowerCase());
+    if (c.outcome !== "completed") notes.push("Worker left before the screen finished");
+    if (c.decision && c.decision !== c.expected_decision) notes.push(`Recommended ${c.decision.replace("_", " ")}, reviewer says ${c.expected_decision.replace("_", " ")}`);
+    const chat = c.transcript.map(t => `<div class="b ${t.role}">${esc(t.text)}${t.cut_off ? '<span class="note">cut off mid-answer</span>' : ""}</div>`).join("");
+    return `<details><summary><span class="tag fail">${esc(c.worker)}</span><span>${esc(notes.join("; "))}</span></summary><div class="chat">${chat}</div></details>`;
+  }).join("") : "<p class='sub'>No failing calls.</p>";
+}
+
+fetch("data.json").then(r => r.json()).then(d => {
+  const keys = Object.keys(d.setups);
+  const g2 = d.gates.phonic_v2, g1 = d.gates.phonic_v1;
+  const ban = document.getElementById("banner");
+  ban.className = "banner" + (g2.go ? "" : " hold");
+  ban.innerHTML = `<span class="big">Synthetic demo: ${g2.go ? "GO to 10% of live screens" : "HOLD"} for Phonic-1 prompt v2</span>` +
+    `Prompt v1 was held: ${g1.checks.filter(c => !c.pass).map(c => esc(c.rule.toLowerCase())).join("; ")}. ` +
+    `After one prompt fix, v2 passes all ${g2.checks.length} gate lines on the same 30 calls. Grader check: ${d.grader_check[0]} of ${d.grader_check[1]} verdicts match the answer key.`;
+  scoreTable(document.getElementById("score"), d.setups, keys);
+  tabs(document.getElementById("gateTabs"), [["phonic_v2", "Prompt v2 vs current"], ["phonic_v1", "Prompt v1 vs current"]], k => gateTable(d.gates[k]));
+  let ch = "<tr><th>Criterion</th>" + keys.map(k => `<th class="num">${esc(d.setups[k].label)}<br><span class="why">pass / fail / not triggered</span></th>`).join("") + "</tr>";
+  for (const c of d.criteria) ch += `<tr><td><strong>${esc(c.name)}</strong>${c.critical ? ' <span class="tag">CRITICAL</span>' : ""}<br><span class="why">${esc(c.text)}</span></td>` +
+    keys.map(k => { const x = d.setups[k].per_criterion[c.id]; return `<td class="num">${x.pass} / ${x.fail ? "<strong>" + x.fail + "</strong>" : 0} / ${x.na}</td>`; }).join("") + "</tr>";
+  document.getElementById("crit").innerHTML = ch;
+  tabs(document.getElementById("callTabs"), keys.map(k => [k, d.setups[k].label]), k => callsFor(d, k));
+});
+
+fetch("live.json").then(r => r.ok ? r.json() : null).then(L => {
+  if (!L) return;
+  const el = document.getElementById("live");
+  el.innerHTML = `<p class="sub">${esc(L.note)}</p><div class="wrap"><table id="liveScore"></table></div>`;
+  scoreTable(document.getElementById("liveScore"), L.setups, Object.keys(L.setups));
+}).catch(() => {});
+</script>
+</body>
+</html>
