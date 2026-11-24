@@ -6,142 +6,275 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Voice Agent Bake-off</title>
+<meta name="description" content="The same 30 line cook screening calls on the current voice stack and a Phonic-1 speech-to-speech screener, graded on 10 criteria, with a rollout gate: prompt v1 is held, prompt v2 may move to 10% of live screens.">
 <style>
-main{padding-bottom:24px}
-.sub{color:var(--ink-2);max-width:46em}
-h1+.sub{font-size:18px}
-.banner{border-radius:16px;padding:20px 22px;margin:32px 0;background:var(--green-wash);color:var(--green);max-width:52em}
-.banner .big{font:400 26px/1.2 var(--serif);display:block;margin-bottom:8px}
-.banner.hold{background:var(--ink);color:var(--paper)}
-.wrap{overflow-x:auto;margin:16px 0}
+.head h1{margin:40px 0 14px}
+.head .lead{max-width:40em}
+/* verdict: the same 30 workers, one square per worker, one row per setup */
+.verdict{margin:36px 0 0;border:1px solid var(--rule);border-radius:16px;background:#fbfaf6;overflow:hidden}
+.vhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding:18px 24px;border-bottom:1px solid var(--rule)}
+.vhead h2{all:unset;font:400 22px/1.2 var(--serif)}
+.vhead p{margin:0;color:var(--ink-2);font-size:15px}
+.vhead p b{color:var(--ink)}
+.vrow{display:grid;grid-template-columns:minmax(0,16em) minmax(0,1fr) 8em 5.5em;align-items:center;gap:20px;padding:22px 24px}
+.vrow+.vrow{border-top:1px solid var(--rule-soft)}
+.vwho b{display:block;font:400 20px/1.2 var(--serif)}
+.vwho span{display:block;color:var(--ink-2);font-size:14px;line-height:1.4;margin-top:4px;font-variant-numeric:tabular-nums}
+.strip{display:grid;grid-template-columns:repeat(30,minmax(0,1fr));gap:4px}
+.cell{display:block;aspect-ratio:1;border-radius:4px;border:1.5px solid transparent;transition:transform .2s var(--ease),box-shadow .2s}
+.cell.pass{background:var(--green)}
+.cell.fail{background:var(--paper);border-color:var(--ink)}
+.cell.crit{background:var(--ink)}
+a.cell:hover,a.cell:focus-visible,.cell.lit{transform:translateY(-3px);box-shadow:0 6px 12px -6px rgb(27 26 23/.5)}
+.vscore b{font:400 44px/1 var(--serif);font-variant-numeric:tabular-nums}
+.vscore b small{font-size:22px;color:var(--ink)}
+.vscore span{display:block;color:var(--ink-2);font-size:13px;line-height:1.35;margin-top:4px}
+.gate{justify-self:end;display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:0 14px;border-radius:999px;font:500 13px/1 var(--mono);letter-spacing:.06em;white-space:nowrap}
+.gate.go{background:var(--green-wash);color:var(--green)}
+.gate.nogo{background:var(--ink);color:var(--paper)}
+.gate.base{border:1px solid var(--rule);color:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;padding:14px 24px;border-top:1px solid var(--rule);color:var(--ink-2);font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border-radius:3px;border:1.5px solid transparent}
+.legend .pass{background:var(--green)}.legend .fail{border-color:var(--ink)}.legend .crit{background:var(--ink)}
+/* rollout ladder inside the verdict card */
+.ladder{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));align-items:stretch;gap:8px;padding:18px 24px;border-top:1px solid var(--rule)}
+.ladder>b{align-self:center;font:500 14px/1.3 var(--sans);padding-right:8px}
+.step{position:relative;border-radius:12px;padding:12px 14px;border:1px solid var(--rule);font-size:14px;line-height:1.35}
+.step em{display:block;font:500 12px/1.3 var(--mono);letter-spacing:.04em;font-style:normal;margin-bottom:4px;color:var(--ink-2)}
+.step.done{background:var(--green);border-color:var(--green);color:#fff}
+.step.done em{color:rgb(255 255 255/.75)}
+.step.next{background:var(--green-wash);border-color:var(--green-wash);color:var(--green)}
+.step.next em{color:var(--green)}
+.step.later{color:var(--ink-2);border-style:dashed}
+/* page body: content and a side column */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:56px;align-items:start;margin-top:8px}
+.side{position:sticky;top:24px;margin-top:64px;display:grid;gap:22px;font-size:14px;color:var(--ink-2)}
+.side h3{margin:0 0 6px;font:500 13px/1.3 var(--sans);color:var(--ink)}
+.side p{margin:0}
+.side nav a{display:block;padding:5px 0;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule-soft)}
+.side nav a:hover{color:var(--ink)}
+.side pre{font-size:12px;margin:6px 0 0}
+.seg{display:flex;width:fit-content;max-width:100%;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--rule);border-radius:999px;margin:0 0 16px;background:#fbfaf6}
+.seg button{min-height:34px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);font:500 14px/1 var(--sans);cursor:pointer}
+.seg button[aria-checked=true]{background:var(--ink);color:var(--paper)}
+.note{color:var(--ink-2);font-size:15px;max-width:44em;margin-top:14px}
+h2+.note{margin-top:0}
 td.num,th.num{text-align:right;white-space:nowrap}
-.tag{display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:999px;font:500 12px/1 var(--mono);letter-spacing:.03em;
-white-space:nowrap;background:var(--green-wash);color:var(--green)}
+#score td:first-child{font-weight:500;min-width:14em}
+#score th{white-space:normal}
+#crit td:first-child{min-width:18em}
+#crit th{white-space:normal}
+.vwho .m{font:400 12.5px/1.5 var(--mono);color:var(--ink-2);margin-top:6px}
+#score td.best{color:var(--green);font-weight:500}
+.tag{display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:999px;font:500 12px/1 var(--mono);letter-spacing:.04em;white-space:nowrap;background:var(--green-wash);color:var(--green)}
 .tag.fail{background:var(--ink);color:var(--paper)}
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-button.on{background:var(--green);border-color:var(--green);color:#fff}
-summary{flex-wrap:wrap;column-gap:12px}
+.tag.crit{background:transparent;border:1px solid var(--ink);color:var(--ink);margin-left:6px}
 .why{color:var(--ink-2);font-size:13px}
 th .why{font:400 11.5px/1.4 var(--mono)}
+#rec{font:400 20px/1.35 var(--serif);margin:8px 0 0}
+#calls details{scroll-margin-top:24px}
+#calls details.lit{background:var(--green-wash);border-radius:8px}
+#calls summary{flex-wrap:wrap;column-gap:12px}
+#calls summary .w{font:500 13px/1 var(--mono)}
 .chat{background:var(--tint-1);border-radius:16px;padding:16px;margin:10px 0 14px;display:flex;flex-direction:column;gap:8px}
 .b{max-width:80%;padding:8px 14px;border-radius:18px;white-space:pre-wrap;word-wrap:break-word;font-size:15px}
 .b.worker{align-self:flex-end;background:var(--green);color:#fff}
 .b.agent{align-self:flex-start;background:#fff}
-.b .note{display:block;font:400 11px/1.4 var(--mono);opacity:.75;margin-top:2px}
-ol{padding-left:20px;max-width:46em}
-code{background:rgb(27 26 23/.05);padding:1px 5px;border-radius:4px}
-main>footer{margin-top:56px;color:var(--ink-2);font-size:14px}
+.b .cut{display:block;font:400 11px/1.4 var(--mono);opacity:.75;margin-top:2px}
+.pending{border:1px dashed var(--rule);border-radius:16px;padding:18px 22px;color:var(--ink-2);max-width:44em}
+@media (max-width:1000px){
+ .layout{grid-template-columns:minmax(0,1fr);gap:0}
+ .side{position:static;margin-top:48px;order:2}
+ .vrow{grid-template-columns:minmax(0,1fr) auto;gap:14px 16px}
+ .vrow .strip{grid-column:1/-1;grid-row:2}
+ .vscore{grid-row:3}.vrow .gate{grid-row:3}
+ .ladder{grid-template-columns:1fr}
+}
+@media (max-width:640px){#crit td:first-child{min-width:12em}#score td:first-child{min-width:10em}.vrow{padding:18px}.vhead,.legend,.ladder{padding-left:18px;padding-right:18px}.strip{gap:2px}.cell{border-radius:3px}.b{max-width:92%}}
+@media (prefers-reduced-motion:reduce){.cell{transition:none}}
 </style>
 </head>
 <body>
 <!-- demo-chrome --><header class="demo-top"><a class="demo-brand" href="https://pranavgudise.dev/"><svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><g class="n"><path class="f" d="M15.5 8.5 L 13.4 13.4 L 8.5 15.5 L 10.6 10.6 Z"/></g><circle class="p" cx="12" cy="12" r=".7"/></svg><span>Pranav Gudise</span></a><a class="pill" href="https://github.com/pg2342-hub/voice-agent-bakeoff">Code on GitHub</a></header><!-- /demo-chrome -->
 
 <main>
-  <h1>Voice agent bake-off: line cook screening calls</h1>
-  <p class="sub">The same 30 workers are screened by the current cascaded voice stack and by a Phonic-1 speech-to-speech screener. Every call is graded on 10 yes/no criteria, and a rollout gate decides whether the new screener may take the next step of traffic (replay, then 10% of live screens, then 50%).</p>
-  <p class="sub"><strong>The 90 calls on this page are synthetic.</strong> Faults were planted by hand so the scorecard has known answers to find. None of these numbers were measured on Vapi, Phonic, or any staffing marketplace. Prices are public list prices.</p>
+<div class="head">
+  <h1>Voice Agent Bake-off</h1>
+  <p class="lead">The same 30 line cook workers are screened by the current cascaded voice stack and by a Phonic-1 speech-to-speech screener. Every call is graded on 10 yes/no criteria, and a rollout gate decides whether the new screener may take the next step of traffic: replay, then 10% of live screens, then 50%.</p>
+</div>
 
-  <div id="banner" class="banner"></div>
+<section class="verdict" aria-labelledby="verdict-h">
+  <div class="vhead"><h2 id="verdict-h">Same 30 synthetic workers, three setups</h2><p id="gateline">Gate: <b>zero</b> critical failures, and no worse than the current stack</p></div>
+  <div id="vrows"></div>
+  <div class="legend"><span><i class="pass"></i>Passed every criterion</span><span><i class="fail"></i>Missed a criterion, left early, or wrong approve / coach-call</span><span><i class="crit"></i>Critical failure</span><span>Each square is one worker. Select an outlined one to read the call.</span></div>
+  <div class="ladder" id="ladder" aria-label="Rollout steps"></div>
+</section>
 
-  <h2>How to read this page</h2>
-  <ol>
-    <li>The table compares the three setups on what a screening team pays for: screens that finish, rules the screener follows, the approve or coach-call call it makes, how fast it answers, and cost per finished screen.</li>
-    <li>The gate shows why prompt v1 was held back (one call promised a worker a shift) and why prompt v2, replayed on the same calls, may move to 10% of live screens.</li>
-    <li>Pick a setup under "Calls that failed a criterion" to read every failing call.</li>
-  </ol>
+<div class="layout">
+<div class="content">
 
-  <h2>Scorecard</h2>
-  <div class="wrap"><table id="score"></table></div>
-  <p class="why">Cost per finished screen = all minutes, including calls the worker abandoned, times the list price per minute, divided by finished screens. Current stack: $0.105/min, the middle of the Deepgram, OpenAI and ElevenLabs stack in Vapi's own pricing calculator, including its hosting fee ($0.082 to $0.129/min). Phonic-1: $0.065/min, Phonic's Pro list price. Latencies are illustrative.</p>
+<h2 id="scorecard">Scorecard</h2>
+<p class="note">What a screening team pays for: screens that finish, rules the screener follows, the approve or coach-call decision it makes, how fast it answers, and cost per finished screen.</p>
+<div class="scroll"><table id="score"></table></div>
+<p class="note">Cost per finished screen = all minutes, including calls the worker abandoned, times the list price per minute, divided by finished screens. Current stack: $0.105/min, the middle of the Deepgram, OpenAI and ElevenLabs stack in Vapi's own pricing calculator, including its hosting fee ($0.082 to $0.129/min). Phonic-1: $0.065/min, Phonic's Pro list price. Latencies are illustrative.</p>
 
-  <h2>Rollout gate</h2>
-  <div class="tabs" id="gateTabs"></div>
-  <div class="wrap"><table id="gate"></table></div>
-  <p id="rec"></p>
+<h2 id="gate">Rollout gate</h2>
+<p class="note">Prompt v1 was held back because one call promised a worker a shift. Prompt v2, replayed on the same calls, may move to 10% of live screens.</p>
+<div class="seg" role="radiogroup" aria-label="Candidate" id="gateSeg"></div>
+<div class="scroll"><table id="gateTable"></table></div>
+<p id="rec"></p>
 
-  <h2>The 10 criteria</h2>
-  <p class="sub">Written the way Phonic's Evals Guide asks: binary, observable, one behavior each. The same text is loaded into Phonic as eval prompts for the live run. "Not triggered" means the behavior never had a chance to occur (for example, nobody asked for another language).</p>
-  <div class="wrap"><table id="crit"></table></div>
+<h2 id="criteria">The 10 criteria</h2>
+<p class="note">Written the way Phonic's Evals Guide asks: binary, observable, one behavior each. The same text is loaded into Phonic as eval prompts for the live run. "Not triggered" means the behavior never had a chance to occur (for example, nobody asked for another language).</p>
+<div class="scroll"><table id="crit"></table></div>
 
-  <h2>Calls that failed a criterion</h2>
-  <div class="tabs" id="callTabs"></div>
-  <div id="calls"></div>
+<h2 id="calls-h">Calls that failed a criterion</h2>
+<div class="seg" role="radiogroup" aria-label="Setup" id="callSeg"></div>
+<div id="calls"></div>
 
-  <h2>Live run on Phonic-1</h2>
-  <div id="live"><p class="sub">Pending: 20 scripted calls to a real Phonic-1 screener (agent/caller_scripts.md), graded by Phonic's own eval prompts.</p></div>
+<h2 id="live-h">Live run on Phonic-1</h2>
+<div id="live"><p class="pending">Pending: 20 scripted calls to a real Phonic-1 screener (<code>agent/caller_scripts.md</code>), graded by Phonic's own eval prompts.</p></div>
+</div>
 
-  <h2>Run it</h2>
-  <p><code>python3 -m unittest</code> then <code>python3 -m bakeoff.report</code>. No dependencies. The live scripts in <code>live/</code> need a Phonic API key.</p>
-
-  <footer>Built by Pranav Gudise. Code: <a href="https://github.com/pg2342-hub/voice-agent-bakeoff">github.com/pg2342-hub/voice-agent-bakeoff</a></footer>
+<aside class="side" aria-label="About this build">
+  <nav aria-label="On this page"><a href="#scorecard">Scorecard</a><a href="#gate">Rollout gate</a><a href="#criteria">The 10 criteria</a><a href="#calls-h">Calls that failed</a><a href="#live-h">Live run on Phonic-1</a></nav>
+  <div><h3>Data</h3><p>Synthetic calls. Faults were planted by hand so the scorecard has known answers to find. None of these numbers were measured on Vapi, Phonic, or any staffing marketplace. Prices are public list prices. <span id="grader"></span></p></div>
+  <div><h3>Run it yourself</h3><p>Python 3, no dependencies. The live scripts in <code>live/</code> need a Phonic API key.</p><pre>python3 -m unittest
+python3 -m bakeoff.report</pre></div>
+  <div><a class="pill" href="https://github.com/pg2342-hub/voice-agent-bakeoff">Code on GitHub</a></div>
+</aside>
+</div>
 </main>
 <script>
 const pct = x => Math.round(100 * x) + "%";
 const money = x => x == null ? "-" : "$" + Number(x).toFixed(2);
+const num = x => Number(x).toLocaleString("en-US");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// Vendor-neutral labels for the page; the data keeps its own.
+
+function seg(el, items, onPick) {
+  el.innerHTML = "";
+  const btns = items.map(([key, text], i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.setAttribute("role", "radio"); b.dataset.k = key; b.textContent = text;
+    b.setAttribute("aria-checked", String(i === 0));
+    b.onclick = () => { btns.forEach(x => x.setAttribute("aria-checked", String(x === b))); onPick(key); };
+    el.appendChild(b); return b;
+  });
+  onPick(items[0][0]);
+  return key => btns.find(b => b.dataset.k === key).click();
+}
+
+function flagged(c) {
+  return c.fails.length || c.outcome !== "completed" || (c.decision && c.decision !== c.expected_decision);
+}
 
 function scoreTable(el, setups, keys) {
   const rows = [
-    ["Finished screens", s => `${s.completed} of ${s.calls} (${pct(s.completion_rate)})`],
-    ["Criteria passed", s => `${s.criteria_pass} of ${s.criteria_judged} (${pct(s.criteria_pass_rate)})`],
-    ["Critical failures", s => s.critical_failures.length ? s.critical_failures.length + " (" + s.critical_failures.map(x => x[1]).join(", ") + ")" : "0"],
-    ["Approve / coach-call matches the reviewer", s => `${s.decision_agree} of ${s.decision_total}`],
-    ["Response latency, p50 / p90", s => `${s.latency_p50_ms} / ${s.latency_p90_ms} ms`],
-    ["Minutes used", s => s.minutes],
-    ["Cost per finished screen", s => money(s.cost_per_completed_screen)],
+    ["Finished screens", s => `${s.completed} of ${s.calls} (${pct(s.completion_rate)})`, s => s.completion_rate, 1],
+    ["Criteria passed", s => `${s.criteria_pass} of ${s.criteria_judged} (${pct(s.criteria_pass_rate)})`, s => s.criteria_pass_rate, 1],
+    ["Critical failures", s => s.critical_failures.length ? s.critical_failures.length + " (" + s.critical_failures.map(x => x[1].split("-").pop()).join(", ") + ")" : "0", s => s.critical_failures.length, -1],
+    ["Approve / coach-call matches the reviewer", s => `${s.decision_agree} of ${s.decision_total}`, s => s.decision_agree / s.decision_total, 1],
+    ["Response latency, p50 / p90", s => `${num(s.latency_p50_ms)} / ${num(s.latency_p90_ms)} ms`, s => s.latency_p90_ms, -1],
+    ["Minutes used", s => s.minutes, null],
+    ["Cost per finished screen", s => money(s.cost_per_completed_screen), s => s.cost_per_completed_screen, -1],
   ];
-  let h = "<tr><th></th>" + keys.map(k => `<th class="num">${esc(setups[k].label)}</th>`).join("") + "</tr>";
-  for (const [name, f] of rows) h += `<tr><td>${name}</td>` + keys.map(k => `<td class="num">${esc(f(setups[k]))}</td>`).join("") + "</tr>";
-  el.innerHTML = h;
-}
-
-function gateTable(g) {
-  document.getElementById("gate").innerHTML = "<tr><th>Gate line</th><th>Result</th><th class='num'>Detail</th></tr>" +
-    g.checks.map(c => `<tr><td>${esc(c.rule)}</td><td><span class="tag ${c.pass ? "" : "fail"}">${c.pass ? "PASS" : "FAIL"}</span></td><td class="num">${esc(c.detail)}</td></tr>`).join("");
-  document.getElementById("rec").innerHTML = "<strong>" + esc(g.recommendation) + "</strong>";
-}
-
-function tabs(el, items, onPick) {
-  el.innerHTML = "";
-  items.forEach(([key, label], i) => {
-    const b = document.createElement("button"); b.textContent = label;
-    b.onclick = () => { [...el.children].forEach(x => x.classList.remove("on")); b.classList.add("on"); onPick(key); };
-    el.appendChild(b); if (i === 0) { b.classList.add("on"); onPick(key); }
-  });
-}
-
-function callsFor(d, setup) {
-  const list = d.calls.filter(c => c.setup === setup && (c.fails.length || c.outcome !== "completed" || (c.decision && c.decision !== c.expected_decision)));
-  document.getElementById("calls").innerHTML = list.length ? list.map(c => {
-    const notes = c.fails.map(f => "Failed: " + f.toLowerCase());
-    if (c.outcome !== "completed") notes.push("Worker left before the screen finished");
-    if (c.decision && c.decision !== c.expected_decision) notes.push(`Recommended ${c.decision.replace("_", " ")}, reviewer says ${c.expected_decision.replace("_", " ")}`);
-    const chat = c.transcript.map(t => `<div class="b ${t.role}">${esc(t.text)}${t.cut_off ? '<span class="note">cut off mid-answer</span>' : ""}</div>`).join("");
-    return `<details><summary><span class="tag fail">${esc(c.worker)}</span><span>${esc(notes.join("; "))}</span></summary><div class="chat">${chat}</div></details>`;
-  }).join("") : "<p class='sub'>No failing calls.</p>";
+  let h = "<thead><tr><th></th>" + keys.map(k => `<th class="num">${esc(setups[k].label)}</th>`).join("") + "</tr></thead><tbody>";
+  for (const [name, f, v, dir] of rows) {
+    let best = null;
+    if (v) { const vals = keys.map(k => v(setups[k])); best = dir > 0 ? Math.max(...vals) : Math.min(...vals); }
+    h += `<tr><td>${name}</td>` + keys.map(k => `<td class="num${v && v(setups[k]) === best ? " best" : ""}">${esc(f(setups[k]))}</td>`).join("") + "</tr>";
+  }
+  el.innerHTML = h + "</tbody>";
 }
 
 fetch("data.json").then(r => r.json()).then(d => {
   const keys = Object.keys(d.setups);
-  const g2 = d.gates.phonic_v2, g1 = d.gates.phonic_v1;
-  const ban = document.getElementById("banner");
-  ban.className = "banner" + (g2.go ? "" : " hold");
-  ban.innerHTML = `<span class="big">Synthetic demo: ${g2.go ? "GO to 10% of live screens" : "HOLD"} for Phonic-1 prompt v2</span>` +
-    `Prompt v1 was held: ${g1.checks.filter(c => !c.pass).map(c => esc(c.rule.toLowerCase())).join("; ")}. ` +
-    `After one prompt fix, v2 passes all ${g2.checks.length} gate lines on the same 30 calls. Grader check: ${d.grader_check[0]} of ${d.grader_check[1]} verdicts match the answer key.`;
+  const g1 = d.gates.phonic_v1, g2 = d.gates.phonic_v2;
+  const critIds = new Set(d.criteria.filter(c => c.critical).map(c => c.name));
+  document.getElementById("gateline").innerHTML = `Gate: <b>zero</b> critical failures, and no worse than the current stack on ${g2.checks.length - 1} more lines`;
+  document.getElementById("grader").textContent = `Grader check: ${d.grader_check[0]} of ${d.grader_check[1]} verdicts match the answer key.`;
+
+  // Verdict rows: one square per worker, in worker order.
+  const badge = k => k === "current" ? ['base', 'BASELINE'] : d.gates[k].go ? ['go', 'GO'] : ['nogo', 'HOLD'];
+  const subs = {current: "Speech-to-text, language model and text-to-speech in sequence",
+                phonic_v1: "First prompt",
+                phonic_v2: "The same calls replayed after one prompt fix"};
+  document.getElementById("vrows").innerHTML = keys.map(k => {
+    const s = d.setups[k];
+    const calls = d.calls.filter(c => c.setup === k);
+    const crit = new Set(s.critical_failures.map(x => x[1]));
+    const cells = calls.map(c => {
+      const st = crit.has(c.call_id) ? "crit" : flagged(c) ? "fail" : "pass";
+      const words = st === "crit" ? "critical failure" : st === "fail" ? "flagged" : "passed every criterion";
+      const aria = `${s.label}, worker ${c.worker}, ${words}`;
+      return st === "pass" ? `<span class="cell pass" data-w="${c.worker}" role="img" aria-label="${esc(aria)}"></span>`
+        : `<a class="cell ${st}" href="#call-${c.call_id}" data-call="${c.call_id}" data-setup="${k}" data-w="${c.worker}" aria-label="${esc(aria)}"></a>`;
+    }).join("");
+    const [cls, txt] = badge(k);
+    return `<div class="vrow"><div class="vwho"><b>${esc(s.label)}</b><span>${esc(subs[k] || s.label)}</span><span class="m">${s.completed}/${s.calls} finished · ${money(s.cost_per_completed_screen)} a screen<br>p90 latency ${num(s.latency_p90_ms)} ms</span></div>
+      <div class="strip" role="group" aria-label="${esc(s.label)}: every worker">${cells}</div>
+      <div class="vscore"><b>${(100 * s.criteria_pass_rate).toFixed(0)}<small>%</small></b><span>${s.criteria_pass} of ${s.criteria_judged} criteria<br>${s.critical_failures.length} critical</span></div>
+      <span class="gate ${cls}">${txt}</span></div>`;
+  }).join("");
+
+  // Rollout ladder: where prompt v2 stands.
+  const R = d.rollout;
+  const v1fail = g1.checks.filter(c => !c.pass).map(c => c.rule.split(" (")[0].toLowerCase()).join("; ");
+  document.getElementById("ladder").innerHTML = `<b>Rollout</b>` +
+    `<div class="step done"><em>1. PASSED</em>${esc(R[0])}: prompt v2 passes all ${g2.checks.length} gate lines. Prompt v1 was held (failed: ${esc(v1fail)}).</div>` +
+    `<div class="step ${g2.go ? "next" : "later"}"><em>2. ${g2.go ? "NEXT, GO" : "WAITING"}</em>${esc(R[1])}</div>` +
+    `<div class="step later"><em>3. LATER</em>${esc(R[2])}, after a full week that meets the gate</div>`;
+
   scoreTable(document.getElementById("score"), d.setups, keys);
-  tabs(document.getElementById("gateTabs"), [["phonic_v2", "Prompt v2 vs current"], ["phonic_v1", "Prompt v1 vs current"]], k => gateTable(d.gates[k]));
-  let ch = "<tr><th>Criterion</th>" + keys.map(k => `<th class="num">${esc(d.setups[k].label)}<br><span class="why">pass / fail / not triggered</span></th>`).join("") + "</tr>";
-  for (const c of d.criteria) ch += `<tr><td><strong>${esc(c.name)}</strong>${c.critical ? ' <span class="tag">CRITICAL</span>' : ""}<br><span class="why">${esc(c.text)}</span></td>` +
+
+  seg(document.getElementById("gateSeg"), [["phonic_v2", "Prompt v2 vs current"], ["phonic_v1", "Prompt v1 vs current"]], k => {
+    const g = d.gates[k];
+    document.getElementById("gateTable").innerHTML = "<thead><tr><th>Gate line</th><th>Result</th><th class='num'>Detail</th></tr></thead><tbody>" +
+      g.checks.map(c => `<tr><td>${esc(c.rule)}</td><td><span class="tag ${c.pass ? "" : "fail"}">${c.pass ? "PASS" : "FAIL"}</span></td><td class="num">${esc(c.detail)}</td></tr>`).join("") + "</tbody>";
+    document.getElementById("rec").textContent = g.recommendation;
+  });
+
+  let ch = "<thead><tr><th>Criterion</th>" + keys.map(k => `<th class="num">${esc(d.setups[k].label)}<br><span class="why">pass / fail / not triggered</span></th>`).join("") + "</tr></thead><tbody>";
+  for (const c of d.criteria) ch += `<tr><td><strong>${esc(c.name)}</strong>${c.critical ? '<span class="tag crit">CRITICAL</span>' : ""}<br><span class="why">${esc(c.text)}</span></td>` +
     keys.map(k => { const x = d.setups[k].per_criterion[c.id]; return `<td class="num">${x.pass} / ${x.fail ? "<strong>" + x.fail + "</strong>" : 0} / ${x.na}</td>`; }).join("") + "</tr>";
-  document.getElementById("crit").innerHTML = ch;
-  tabs(document.getElementById("callTabs"), keys.map(k => [k, d.setups[k].label]), k => callsFor(d, k));
+  document.getElementById("crit").innerHTML = ch + "</tbody>";
+
+  const pickCalls = seg(document.getElementById("callSeg"), keys.map(k => [k, d.setups[k].label]), k => {
+    const list = d.calls.filter(c => c.setup === k && flagged(c));
+    document.getElementById("calls").innerHTML = list.length ? list.map(c => {
+      const notes = c.fails.map(f => "Failed: " + f.toLowerCase());
+      if (c.outcome !== "completed") notes.push("Worker left before the screen finished");
+      if (c.decision && c.decision !== c.expected_decision) notes.push(`Recommended ${c.decision.replace("_", " ")}, reviewer says ${c.expected_decision.replace("_", " ")}`);
+      const crit = c.fails.some(f => critIds.has(f));
+      const chat = c.transcript.map(t => `<div class="b ${t.role}">${esc(t.text)}${t.cut_off ? '<span class="cut">cut off mid-answer</span>' : ""}</div>`).join("");
+      return `<details id="call-${c.call_id}"><summary><span class="tag ${crit ? "fail" : ""}">${esc(c.worker)}</span><span>${esc(notes.join("; "))}</span></summary><div class="chat">${chat}</div></details>`;
+    }).join("") : "<p class='note'>No failing calls.</p>";
+  });
+
+  document.querySelectorAll(".strip .cell").forEach(cell => {
+    const w = cell.dataset.w;
+    const lit = on => document.querySelectorAll(`.cell[data-w="${w}"]`).forEach(x => x.classList.toggle("lit", on));
+    cell.addEventListener("mouseenter", () => lit(true));
+    cell.addEventListener("mouseleave", () => lit(false));
+    if (cell.tagName !== "A") return;
+    cell.addEventListener("click", e => {
+      e.preventDefault();
+      pickCalls(cell.dataset.setup);
+      const det = document.getElementById("call-" + cell.dataset.call);
+      if (!det) return;
+      document.querySelectorAll("#calls details.lit").forEach(x => x.classList.remove("lit"));
+      det.open = true; det.classList.add("lit");
+      det.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start"});
+    });
+  });
 });
 
 fetch("live.json").then(r => r.ok ? r.json() : null).then(L => {
   if (!L) return;
   const el = document.getElementById("live");
-  el.innerHTML = `<p class="sub">${esc(L.note)}</p><div class="wrap"><table id="liveScore"></table></div>`;
+  el.innerHTML = `<p class="note">${esc(L.note)}</p><div class="scroll"><table id="liveScore"></table></div>`;
   scoreTable(document.getElementById("liveScore"), L.setups, Object.keys(L.setups));
 }).catch(() => {});
 </script>
