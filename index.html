@@ -93,6 +93,17 @@ th .why{font:400 11.5px/1.4 var(--mono)}
 }
 @media (max-width:640px){#crit td:first-child{min-width:12em}#score td:first-child{min-width:10em}.vrow{padding:18px}.vhead,.legend,.ladder{padding-left:18px;padding-right:18px}.strip{gap:2px}.cell{border-radius:3px}.b{max-width:92%}}
 @media (prefers-reduced-motion:reduce){.cell{transition:none}}
+/* signature visual: cost and latency bars, to scale */
+.bars{margin:28px 0 0;border:1px solid var(--rule);border-radius:16px;background:#fbfaf6;padding:18px 24px 6px}
+.bars figcaption{font:400 20px/1.25 var(--serif);margin:0 0 14px}
+.bpanel{margin:0 0 16px}
+.bpanel h3{margin:0 0 8px;font:500 13px/1.3 var(--sans);color:var(--ink-2)}
+.brow{display:grid;grid-template-columns:minmax(0,11em) minmax(0,1fr) 5.5em;align-items:center;gap:12px;padding:4px 0;font-size:14px}
+.btrack{height:14px}
+.bfill{height:100%;border-radius:3px;background:var(--green)}
+.bfill.base{background:var(--paper);border:1.5px solid var(--ink)}
+.bval{font-variant-numeric:tabular-nums;text-align:right;font-family:var(--mono);font-size:13px}
+@media (max-width:640px){.bars{padding:16px 18px 4px}.brow{grid-template-columns:minmax(0,1fr) 5em;gap:4px 10px}.brow .btrack{grid-column:1/-1;grid-row:2}}
 </style>
 </head>
 <body>
@@ -119,6 +130,12 @@ th .why{font:400 11.5px/1.4 var(--mono)}
 <div class="scroll"><table id="score"></table></div>
 <p class="note">Cost per finished screen = all minutes, including calls the worker abandoned, times the list price per minute, divided by finished screens. Current stack: $0.105/min, the middle of the Deepgram, OpenAI and ElevenLabs stack in Vapi's own pricing calculator, including its hosting fee ($0.082 to $0.129/min). Phonic-1: $0.065/min, Phonic's Pro list price. Latencies are illustrative.</p>
 
+<figure class="bars" aria-labelledby="bars-h">
+  <figcaption id="bars-h">What a finished screen costs, and how long a worker waits for a reply</figcaption>
+  <div id="barsBody"></div>
+  <p class="note">Bars drawn to scale within each panel. Shorter is better on both.</p>
+</figure>
+
 <h2 id="gate">Rollout gate</h2>
 <p class="note">Prompt v1 was held back because one call promised a worker a shift. Prompt v2, replayed on the same calls, may move to 10% of live screens.</p>
 <div class="seg" role="radiogroup" aria-label="Candidate" id="gateSeg"></div>
@@ -139,7 +156,7 @@ th .why{font:400 11.5px/1.4 var(--mono)}
 
 <aside class="side" aria-label="About this build">
   <nav aria-label="On this page"><a href="#scorecard">Scorecard</a><a href="#gate">Rollout gate</a><a href="#criteria">The 10 criteria</a><a href="#calls-h">Calls that failed</a><a href="#live-h">Live run on Phonic-1</a></nav>
-  <div><h3>Data</h3><p>Synthetic calls. Faults were planted by hand so the scorecard has known answers to find. None of these numbers were measured on Vapi, Phonic, or any staffing marketplace. Prices are public list prices. <span id="grader"></span></p></div>
+  <div><h3>Data</h3><p>Synthetic calls. Faults were planted by hand so the scorecard has known answers to find. None of these numbers were measured on Vapi, Phonic, or any staffing marketplace. Prices are public list prices from phonic.ai/pricing and the pricing calculator at vapi.ai/pricing. Latencies, call outcomes and worker answers are invented. <span id="grader"></span></p></div>
   <div><h3>Run it yourself</h3><p>Python 3, no dependencies. The live scripts in <code>live/</code> need a Phonic API key.</p><pre>python3 -m unittest
 python3 -m bakeoff.report</pre></div>
   <div><a class="pill" href="https://github.com/pg2342-hub/voice-agent-bakeoff">Code on GitHub</a></div>
@@ -151,7 +168,6 @@ const pct = x => Math.round(100 * x) + "%";
 const money = x => x == null ? "-" : "$" + Number(x).toFixed(2);
 const num = x => Number(x).toLocaleString("en-US");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-// Vendor-neutral labels for the page; the data keeps its own.
 
 function seg(el, items, onPick) {
   el.innerHTML = "";
@@ -197,7 +213,7 @@ fetch("data.json").then(r => r.json()).then(d => {
   document.getElementById("grader").textContent = `Grader check: ${d.grader_check[0]} of ${d.grader_check[1]} verdicts match the answer key.`;
 
   // Verdict rows: one square per worker, in worker order.
-  const badge = k => k === "current" ? ['base', 'BASELINE'] : d.gates[k].go ? ['go', 'GO'] : ['nogo', 'HOLD'];
+  const badge = k => k === "current" ? ['base', 'BASELINE'] : d.gates[k].go ? ['go', 'GO'] : ['nogo', 'NO-GO'];
   const subs = {current: "Speech-to-text, language model and text-to-speech in sequence",
                 phonic_v1: "First prompt",
                 phonic_v2: "The same calls replayed after one prompt fix"};
@@ -228,6 +244,19 @@ fetch("data.json").then(r => r.json()).then(d => {
     `<div class="step later"><em>3. LATER</em>${esc(R[2])}, after a full week that meets the gate</div>`;
 
   scoreTable(document.getElementById("score"), d.setups, keys);
+
+  // Signature visual: two panels, each bar scaled to that panel's largest value.
+  const short = {current: "Current stack", phonic_v1: "Phonic-1, prompt v1", phonic_v2: "Phonic-1, prompt v2"};
+  const panel = (title, f, fmt) => {
+    const max = Math.max(...keys.map(k => f(d.setups[k])));
+    return `<div class="bpanel"><h3>${title}</h3>` + keys.map(k => {
+      const v = f(d.setups[k]);
+      return `<div class="brow"><span>${esc(short[k] || d.setups[k].label)}</span><div class="btrack"><div class="bfill${k === "current" ? " base" : ""}" style="width:${(100 * v / max).toFixed(1)}%"></div></div><span class="bval">${fmt(v)}</span></div>`;
+    }).join("") + "</div>";
+  };
+  document.getElementById("barsBody").innerHTML =
+    panel("Cost per finished screen", s => s.cost_per_completed_screen, money) +
+    panel("p90 response latency", s => s.latency_p90_ms, v => num(v) + " ms");
 
   seg(document.getElementById("gateSeg"), [["phonic_v2", "Prompt v2 vs current"], ["phonic_v1", "Prompt v1 vs current"]], k => {
     const g = d.gates[k];
@@ -272,7 +301,7 @@ fetch("data.json").then(r => r.json()).then(d => {
 });
 
 fetch("live.json").then(r => r.ok ? r.json() : null).then(L => {
-  if (!L) return;
+  if (!L || !L.setups) return;
   const el = document.getElementById("live");
   el.innerHTML = `<p class="note">${esc(L.note)}</p><div class="scroll"><table id="liveScore"></table></div>`;
   scoreTable(document.getElementById("liveScore"), L.setups, Object.keys(L.setups));
